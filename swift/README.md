@@ -27,3 +27,8 @@ https://swift.org/getting-started/#installing-swift
 You can open the `Package.swift` file in Xcode to build and run the project if you prefer. When running the application from Xcode it will default to printing the first 2 days in the console. To adjust this add an Integer environmental variable to the `GildedRose` build scheme:
 
 <img width="773" alt="Screenshot 2021-05-21 at 11 05 33" src="https://user-images.githubusercontent.com/630601/119180032-9fc7c780-ba67-11eb-849c-78e0bf691fd9.png">
+
+## Approach
+
+The task is to add the new feature to the system so that it supports "Conjured" items. It's going to be a simple change to the code. However, problems arise when considering the readability and the scalability of the "updateQuality" method. Surely this needs a refactor before adding the new feature. However, the existing code is a work in progress. Therefore, we need to guarantee that the current behavior remains unchanged throughout the refactoring process. As always the first thing that comes to mind is unit tests. Luckily, we are given a unit test to start the process. So let's start making it pass first and then do some refactoring to make it more readable and precise.
+
