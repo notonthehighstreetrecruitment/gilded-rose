@@ -1,15 +1,16 @@
 import Foundation
 import XCTest
+import ApprovalTests_Swift
 
 @testable import GildedRose
 
 class GildedRoseTests: XCTestCase {
 
-    func testGildedRose_updateQuality() {
-        let items = [Item(name: "foo", sellIn: 0, quality: 0)]
+    func testGildedRose_updateQuality() throws {
+        let items = [Item(name: "Aged Brie", sellIn: 2, quality: 0)]
         let app = GildedRose(items: items);
         app.updateQuality();
         
-        XCTAssertEqual("foo", app.items[0].name);
+        try Approvals.verify(app.items[0].description)
     }
 }

@@ -5,6 +5,12 @@ import PackageDescription
 
 let package = Package(
     name: "GildedRose",
+    dependencies: [
+        .package(
+            url: "https://github.com/approvals/ApprovalTests.Swift",
+            .exact("2.0.0")
+        ),
+    ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
@@ -13,9 +19,12 @@ let package = Package(
             dependencies: []),
         .target(
             name: "GildedRoseApp",
-            dependencies: ["GildedRose"]),          
+            dependencies: ["GildedRose"]),
         .testTarget(
             name: "GildedRoseTests",
-            dependencies: ["GildedRose"]),
+            dependencies: [
+                "GildedRose",
+                "ApprovalTests.Swift",
+            ]),
     ]
 )
