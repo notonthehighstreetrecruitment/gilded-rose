@@ -46,4 +46,8 @@ By adding multiple inputs for name, sellIn, and quality we could create 80 test 
 
 ### Step 4
 
+Now the code is fully covered. So that it's time for the refactoring. As the requirement to add a new item type "Conjured" item, it's better to group the logic based on the item type. So that adding a new type will become easier. Firstly, extract the entire logic to a separate method. This made the "updateQuality" method more simple and readable. Further, TDD is the key to keeping the existing behavior without breaking the existing functionality.
+
+### Step 5
+
 
