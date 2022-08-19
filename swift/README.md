@@ -50,4 +50,8 @@ Now the code is fully covered. So that it's time for the refactoring. As the req
 
 ### Step 5
 
+Now the entire condition is grouped based on the item name. Adding a new item type is much easier. But we can further refactor this. It's better to convert this to an enum so that string comparisons can be removed from the condition.
+
+### Step 6
+
 
