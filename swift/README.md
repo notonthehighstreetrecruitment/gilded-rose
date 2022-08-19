@@ -54,4 +54,6 @@ Now the entire condition is grouped based on the item name. Adding a new item ty
 
 ### Step 6
 
+As always there can be a better way to optimize this. Adding a new type requires modifications to the updateQuality method, which violates the open-close principle. So that we can move the "updateQuality" method to the item class and create sub-classes from it. And then can override the behavior depending on the item type. However, it is mentioned not to alter the "Item" class. In Swift, we can use an extension to overcome this condition.
+
 
