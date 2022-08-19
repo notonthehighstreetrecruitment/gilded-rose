@@ -30,6 +30,20 @@ You can open the `Package.swift` file in Xcode to build and run the project if y
 
 ## Approach
 
+### Step 1
+
 The task is to add the new feature to the system so that it supports "Conjured" items. It's going to be a simple change to the code. However, problems arise when considering the readability and the scalability of the "updateQuality" method. Surely this needs a refactor before adding the new feature. However, the existing code is a work in progress. Therefore, we need to guarantee that the current behavior remains unchanged throughout the refactoring process. As always the first thing that comes to mind is unit tests. Luckily, we are given a unit test to start the process. So let's start making it pass first and then do some refactoring to make it more readable and precise.
 
+### Step 2
+
 Apart from the name, the "Item" class contains two other properties, "sellIn" and "quality." Now it's time to make the unit test more meaningful by covering other properties. We can confirm the item class to the equatable protocol and use the "XCTAssertEqual." However, we can use the description computed property easily to match items. Further, to improve the stability, we need to compare multiple items with different configurations. So we need to add more and more unit tests. But there should be a better approach. This is the place where ApprovalTests comes into the picture. To use ApprovalTests, we need to add the package dependency. And then, we can start refactoring the unit test.
+
+### Step 3
+
+Now, we have one approval test. But we need more to validate the current behavior before starting the refactoring. To guarantee that the current implementation is fully covered, we can utilize the Xcodes' built-in test coverage option. After enabling the test coverage option, it clearly shows the sections that are not covered, in highlighted red. Now we need more tests. Instead of writing more and more test cases, "ApprovalTests" comes with a cool feature called "CombinationApprovals." The concept is called "Characterization Tests." So let's use this cool feature to populate test cases. Further, when approving the received approval test cases, we don't even need to think about that. As this is legacy code and currently in production, its current behavior is correct. 
+
+By adding multiple inputs for name, sellIn, and quality we could create 80 test cases to fully cover the current code. However, always it's a good practice to do some mutations on the code and rerun unit tests to catch edge cases.
+
+### Step 4
+
+
