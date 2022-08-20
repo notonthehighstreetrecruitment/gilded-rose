@@ -26,6 +26,62 @@ class GildedRoseTests: XCTestCase {
         )
     }
     
+    func testConjuredItem_updateQuality_forPositiveSellIn() {
+        let name = ItemType.conjured.name
+        let sellIn = 2
+        let quality = 10
+        
+        let expectedQualityAfterDegrade = quality - 2
+        
+        let itemQuality = updateItemQualityHelper(name: name,
+                                              sellIn: sellIn,
+                                              quality: quality)
+        
+        XCTAssertEqual(itemQuality, expectedQualityAfterDegrade)
+    }
+    
+    func testConjuredItem_updateQuality_forZeroSellIn() {
+        let name = ItemType.conjured.name
+        let sellIn = 0
+        let quality = 10
+        
+        let expectedQualityAfterDegrade = quality - 4
+        
+        let itemQuality = updateItemQualityHelper(name: name,
+                                              sellIn: sellIn,
+                                              quality: quality)
+        
+        XCTAssertEqual(itemQuality, expectedQualityAfterDegrade)
+    }
+    
+    func testConjuredItem_updateQuality_forNegativeSellIn() {
+        let name = ItemType.conjured.name
+        let sellIn = -1
+        let quality = 10
+        
+        let expectedQualityAfterDegrade = quality - 4
+        
+        let itemQuality = updateItemQualityHelper(name: name,
+                                              sellIn: sellIn,
+                                              quality: quality)
+        
+        XCTAssertEqual(itemQuality, expectedQualityAfterDegrade)
+    }
+    
+    func testConjuredItem_forNegativeQualityValues_forNegativeSellIn() {
+        let name = ItemType.conjured.name
+        let sellIn = -1
+        let quality = 1
+        
+        let expectedQualityAfterDegrade = 0
+        
+        let itemQuality = updateItemQualityHelper(name: name,
+                                              sellIn: sellIn,
+                                              quality: quality)
+        
+        XCTAssertEqual(itemQuality, expectedQualityAfterDegrade)
+    }
+    
     private func updateQualityHelper(name: String, sellIn: Int, quality: Int) -> String {
         let items = [Item(name: name, sellIn: sellIn, quality: quality)]
         let app = GildedRose(items: items);
@@ -33,4 +89,13 @@ class GildedRoseTests: XCTestCase {
         
         return app.items[0].description
     }
+    
+    private func updateItemQualityHelper(name: String, sellIn: Int, quality: Int) -> Int {
+        let items = [Item(name: name, sellIn: sellIn, quality: quality)]
+        let app = GildedRose(items: items);
+        app.updateQuality();
+        
+        return app.items[0].quality
+    }
+    
 }

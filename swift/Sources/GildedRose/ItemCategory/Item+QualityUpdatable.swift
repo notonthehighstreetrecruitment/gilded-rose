@@ -41,6 +41,8 @@ extension Item {
             return BackstagePass(name: self.name, sellIn: self.sellIn, quality: self.quality)
         case .sulfuras:
             return Sulfuras(name: self.name, sellIn: self.sellIn, quality: self.quality)
+        case.conjured:
+            return Conjured(name: self.name, sellIn: self.sellIn, quality: self.quality)
         }
     }
 }

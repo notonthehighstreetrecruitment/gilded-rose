@@ -12,6 +12,7 @@ enum ItemType: String {
     case agedBrie = "Aged Brie"
     case backstagePasses = "Backstage passes to a TAFKAL80ETC concert"
     case sulfuras = "Sulfuras, Hand of Ragnaros"
+    case conjured = "Conjured Mana Cake"
     
     var name: String {
         self.rawValue

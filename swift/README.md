@@ -56,4 +56,8 @@ Now the entire condition is grouped based on the item name. Adding a new item ty
 
 As always there can be a better way to optimize this. Adding a new type requires modifications to the updateQuality method, which violates the open-close principle. So that we can move the "updateQuality" method to the item class and create sub-classes from it. And then can override the behavior depending on the item type. However, it is mentioned not to alter the "Item" class. In Swift, we can use an extension to overcome this condition.
 
+### Step 7
+
+Now the code is much cleaner and it follows the open-close principle. Each item type contains its conditions for the 'updateQuality' method. Now it's time to add the new feature. Here we can add new test cases to validate and cover the "Conjured" items' "updateQuality" method.  
+
 

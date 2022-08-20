@@ -22,7 +22,7 @@ if (CommandLine.argc > 1) {
 for i in 0..<days {
     print("-------- day \(i) --------");
     print("name, sellIn, quality");
-    for item in items {
+    for item in app.items { // Changed this, because input item array transformed to subtypes inside `GildedRose` class
         print(item);
     }
     print("");
