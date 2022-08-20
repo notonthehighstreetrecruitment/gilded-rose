@@ -82,6 +82,23 @@ class GildedRoseTests: XCTestCase {
         XCTAssertEqual(itemQuality, expectedQualityAfterDegrade)
     }
     
+    func testGildedRose_conjuredItem_updateQuality() throws {
+        
+        let names = [
+            "Conjured Mana Cake"
+        ]
+        
+        let sellIn = [-1, 0, 2]
+        let quality = [0, 1, 2, 3, 4, 50]
+        
+        try CombinationApprovals.verifyAllCombinations(
+            updateQualityHelper,
+            names,
+            sellIn,
+            quality
+        )
+    }
+    
     private func updateQualityHelper(name: String, sellIn: Int, quality: Int) -> String {
         let items = [Item(name: name, sellIn: sellIn, quality: quality)]
         let app = GildedRose(items: items);

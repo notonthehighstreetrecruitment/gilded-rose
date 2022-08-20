@@ -60,4 +60,8 @@ As always there can be a better way to optimize this. Adding a new type requires
 
 Now the code is much cleaner and it follows the open-close principle. Each item type contains its conditions for the 'updateQuality' method. Now it's time to add the new feature. Here we can add new test cases to validate and cover the "Conjured" items' "updateQuality" method.  
 
+### Step 8
+
+As always, there can be a better way to optimize this. So let's remove nested if statements. Further, adding a combination-approval test for "Conjured" items can improve the app's stability. This way, we can limit the number of unit tests and add more test cases.
+
 
