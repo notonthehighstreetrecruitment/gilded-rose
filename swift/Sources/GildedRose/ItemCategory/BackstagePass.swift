@@ -9,26 +9,32 @@ import Foundation
 
 class BackstagePass: Item {
     override func updateQuality() {
-        if (quality < 50) {
-            quality = quality + 1
-            
-            if (sellIn < 11) {
-                if (quality < 50) {
-                    quality = quality + 1
-                }
-            }
-            
-            if (sellIn < 6) {
-                if (quality < 50) {
-                    quality = quality + 1
-                }
-            }
+        
+        // Maximum quality for an item is 50
+        // Increases in Quality as its SellIn value approaches
+        if quality < 50 {
+            quality += 1
         }
         
-        sellIn = sellIn - 1
+        // Maximum quality for an item is 50
+        // Quality increases by 2 when there are 10 days or less
+        if sellIn < 11 && quality < 50 {
+            quality += 1
+        }
         
-        if (sellIn < 0) {
+        // Maximum quality for an item is 50
+        // Quality increases by 3 when there are 5 days or less
+        if sellIn < 6 && quality < 50 {
+            quality += 1
+        }
+        
+        // Lowers sellIn value by 1 each day
+        sellIn -= 1
+        
+        // Quality drops to 0 after the concert
+        if sellIn < 0 {
             quality = 0
         }
+    
     }
 }

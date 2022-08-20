@@ -2,7 +2,7 @@
 public class GildedRose {
     public var items: [Item]
     
-    public required init(items:[Item]) {
+    public required init(items: [Item]) {
         self.items = items.map { item in
             item.toSubType()
         }

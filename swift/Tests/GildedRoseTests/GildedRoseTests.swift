@@ -99,6 +99,20 @@ class GildedRoseTests: XCTestCase {
         )
     }
     
+    func testItem_forNegativeSellIn() {
+        let name = "foo"
+        let sellIn = -1
+        let quality = 1
+        
+        let expectedQualityAfterDegrade = 0
+        
+        let itemQuality = updateItemQualityHelper(name: name,
+                                              sellIn: sellIn,
+                                              quality: quality)
+        
+        XCTAssertEqual(itemQuality, expectedQualityAfterDegrade)
+    }
+    
     private func updateQualityHelper(name: String, sellIn: Int, quality: Int) -> String {
         let items = [Item(name: name, sellIn: sellIn, quality: quality)]
         let app = GildedRose(items: items);

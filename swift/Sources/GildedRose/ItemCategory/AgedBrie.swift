@@ -9,14 +9,23 @@ import Foundation
 
 class AgedBrie: Item {
     override func updateQuality() {
-        if (quality < 50) {
-            quality = quality + 1
-        }
         
-        sellIn = sellIn - 1
+        // Lowers sellIn value by 1 each day
+        sellIn -= 1
         
-        if (sellIn < 0) && (quality < 50) {
-            quality = quality + 1
-        }
+        // Maximum quality for an item is 50
+        guard quality < 50 else { return }
+        
+        // "Aged Brie" increases in Quality the older it gets
+        quality += 1
+        
+        // Maximum quality for an item is 50
+        guard quality < 50 else { return }
+        
+        // Quality increases twice as fast when passed SellIn date
+        guard sellIn < 0 else { return }
+        
+        quality += 1
+        
     }
 }
