@@ -8,6 +8,10 @@
 import Foundation
 
 class BackstagePass: Item {
+    
+    /**
+     Override `updateQuality` to provide  the correct implementation for the `BackstagePass` type.
+     */
     override func updateQuality() {
         
         // Maximum quality for an item is 50

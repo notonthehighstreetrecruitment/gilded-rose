@@ -33,24 +33,4 @@ extension Item {
         }
         
     }
-    
-    /**
-     Create sub-classes based on the name property
-     */
-    func toSubType() -> Item {
-        guard let type = ItemType(rawValue: name) else {
-            return self
-        }
-        
-        switch type {
-        case .agedBrie:
-            return AgedBrie(name: self.name, sellIn: self.sellIn, quality: self.quality)
-        case .backstagePasses:
-            return BackstagePass(name: self.name, sellIn: self.sellIn, quality: self.quality)
-        case .sulfuras:
-            return Sulfuras(name: self.name, sellIn: self.sellIn, quality: self.quality)
-        case.conjured:
-            return Conjured(name: self.name, sellIn: self.sellIn, quality: self.quality)
-        }
-    }
 }

@@ -8,6 +8,10 @@
 import Foundation
 
 class AgedBrie: Item {
+    
+    /**
+     Override `updateQuality` to provide  the correct implementation for the `AgedBrie` type.
+     */
     override func updateQuality() {
         
         // Lowers sellIn value by 1 each day

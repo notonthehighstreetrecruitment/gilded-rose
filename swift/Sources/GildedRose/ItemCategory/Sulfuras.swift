@@ -8,6 +8,10 @@
 import Foundation
 
 class Sulfuras: Item {
+    
+    /**
+     Override `updateQuality` to provide  the correct implementation for the `Sulfuras` type.
+     */
     override func updateQuality() {
         
     }

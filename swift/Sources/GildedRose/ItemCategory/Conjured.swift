@@ -8,6 +8,10 @@
 import Foundation
 
 class Conjured: Item {
+    
+    /**
+     Override `updateQuality` to provide  the correct implementation for the `Conjured` type.
+     */
     override func updateQuality() {
         
         // Lowers sellIn value by 1 each day

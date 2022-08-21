@@ -64,4 +64,14 @@ Now the code is much cleaner and it follows the open-close principle. Each item 
 
 As always, there can be a better way to optimize this. So let's remove nested if statements. Further, adding a combination-approval test for "Conjured" items can improve the app's stability. This way, we can limit the number of unit tests and add more test cases.
 
+### Step 9
+
+Now adding a new item type for the system is much simpler. All you have to do is add a new case to the "ItemType." The system will guide you through the steps to follow:
+ 
+Adding a new type:
+    1. Add a new case to "ItemType"
+    2. Fix the "ItemFactory" compiler error by adding the new case
+    3. Create a new class by subclassing to  "Item"
+    4. Override the "updateQuality" method if applicable
+    
 
