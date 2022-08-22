@@ -9,8 +9,7 @@ public class GildedRose {
     }
     
     public func updateQuality() {
-        for i in 0..<items.count {
-            let item = items[i]
+        for item in items {
             item.updateQuality()
         }
     }

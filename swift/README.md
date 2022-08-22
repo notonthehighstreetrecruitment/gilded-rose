@@ -74,4 +74,4 @@ Adding a new type:
     3. Create a new class by subclassing to  "Item"
     4. Override the "updateQuality" method if applicable
     
-
+Finally, As always, there can be a better way to optimize this. It's always better to have a conversation with colleagues when refactoring an existing code. Further, discussions will help to change the Item class. 
