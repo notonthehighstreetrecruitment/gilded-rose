@@ -10,4 +10,4 @@ Lint/UselessAssignment:
     - "texttest_fixture.rb"
 Metrics/BlockLength:
   Exclude:
-    - "*_spec.rb"
+    - "spec/*_spec.rb"
