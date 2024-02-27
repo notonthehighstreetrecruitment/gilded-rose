@@ -8,7 +8,8 @@ class GildedRose
   UPDATE_HANDLERS = {
     'Aged Brie' => UpdateHandlers::AgedBrie,
     'Sulfuras, Hand of Ragnaros' => UpdateHandlers::Sulfuras,
-    'Backstage passes to a TAFKAL80ETC concert' => UpdateHandlers::BackstagePasses
+    'Backstage passes to a TAFKAL80ETC concert' => UpdateHandlers::BackstagePasses,
+    'Conjured Mana Cake' => UpdateHandlers::Conjured
   }.freeze
 
   private_constant :UPDATE_HANDLERS

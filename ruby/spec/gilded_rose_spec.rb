@@ -129,6 +129,34 @@ RSpec.describe GildedRose do
       end
     end
 
+    context 'when the item is Conjured' do
+      it_behaves_like 'lowers the sell in day by 1'
+
+      context 'when sell in and quality are positive' do
+        let(:item) { Item.new('Conjured Mana Cake', 2, 5) }
+
+        it 'lowers the quality by 2' do
+          expect { subject }.to change { item.quality }.by(-2)
+        end
+      end
+
+      context 'when the sell by date is passed' do
+        let(:item) { Item.new('Conjured Mana Cake', 0, 5) }
+
+        it 'lowers the quality by 4' do
+          expect { subject }.to change { item.quality }.by(-4)
+        end
+      end
+
+      context 'when the quality is reaching zero' do
+        let(:item) { Item.new('Conjured Mana Cake', 0, 1) }
+
+        it 'lowers the quality to zero but not negative' do
+          expect { subject }.to change { item.quality }.to(0)
+        end
+      end
+    end
+
     context 'when there are multiple items' do
       let(:items) { [item_one, item_two, item_three, item_four] }
       let(:item_one) { Item.new('foo', 0, 3) }
