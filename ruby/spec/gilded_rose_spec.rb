@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative '../gilded_rose'
+require_relative '../item'
 
 RSpec.describe GildedRose do
   let(:gilded_rose) { described_class.new(items) }
