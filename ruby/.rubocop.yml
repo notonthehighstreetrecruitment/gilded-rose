@@ -1,0 +1,13 @@
+Style/Documentation:
+  Enabled: false
+AllCops:
+  Exclude:
+    - "Gemfile"
+  NewCops: enable
+  SuggestExtensions: false
+Lint/UselessAssignment:
+  Exclude:
+    - "texttest_fixture.rb"
+Metrics/BlockLength:
+  Exclude:
+    - "*_spec.rb"
